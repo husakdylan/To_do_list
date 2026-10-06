@@ -1,0 +1,223 @@
+/* ===================================================
+   1. VARIABLES DE DISEÑO 
+   =================================================== */
+:root {
+  --bg-main: #0f172a;          
+  --card-bg: #1e293b;          
+  --item-bg: #334155;          
+  --primary: #6366f1;          
+  --primary-hover: #4f46e5;
+  --danger: #ef4444;           
+  --success: #22c55e;          
+  --text-main: #ffffff;       
+  --text-muted: #e2e8f0;       
+  --border-color: #64748b;     
+  --radius: 12px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================================
+   2. RESET Y ESTILOS BASE
+   =================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+/* ===================================================
+   3. CONTENEDOR PRINCIPAL
+   =================================================== */
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--card-bg);
+  padding: 32px;
+  border-radius: calc(var(--radius) * 1.5);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Título con color sólido claro*/
+h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.025em;
+  color: #c7d2fe; /* Azul claro de alto contraste */
+}
+
+/* ===================================================
+   4. FORMULARIO E INPUTS
+   =================================================== */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 14px 16px;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+/* Placeholder claro para pasar la auditoría */
+input[type="text"]::placeholder {
+  color: #cbd5e1; 
+}
+
+input[type="text"]:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.35);
+}
+
+button[type="submit"] {
+  padding: 14px 20px;
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ===================================================
+   5. LISTA DE TAREAS
+   =================================================== */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  background-color: var(--item-bg);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+  cursor: pointer;
+  user-select: none;
+}
+
+li:hover {
+  transform: translateX(4px);
+  background-color: #3e4e68;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Íconos de estado */
+.completed-icon {
+  color: #4ade80; 
+  font-size: 1.1rem;
+}
+
+.pending-icon {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+li span {
+  font-size: 0.95rem;
+  word-break: break-word;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+/* Tareas completadas */
+li.completed {
+  background-color: #1e293b;
+}
+
+li.completed span {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Botón de eliminar con color visible de alto contraste */
+.delete-btn {
+  background-color: transparent;
+  color: #fca5a5;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.delete-btn:hover {
+  background-color: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+}
+
+/* ===================================================
+   6. RESPONSIVE DESIGN (MÓVILES)
+   =================================================== */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .app-container {
+    padding: 20px 16px;
+    border-radius: var(--radius);
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  input[type="text"] {
+    font-size: 16px;
+  }
+
+  li:hover {
+    transform: none;
+  }
+}

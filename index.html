@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Lista de Tareas</title>
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="app-container">
+    <h1><i class="fa-solid fa-list-check"></i> Lista de Tareas</h1>
+
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="¿Qué querés hacer hoy?" maxlength="60" required />
+      <button type="submit"><i class="fa-solid fa-plus"></i> Agregar</button>
+    </form>
+
+    <ul id="todo-list"></ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
